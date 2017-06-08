@@ -9,14 +9,11 @@ namespace IocAutofac.Models.Database
     [Table("Loan")]
     public partial class Loan
     {
-        [Column(TypeName = "numeric")]
-        public decimal Id { get; set; }
+        public int Id { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? Borrower { get; set; }
+        public int? Borrower { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? Accession { get; set; }
+        public int? Accession { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime? DateOut { get; set; }

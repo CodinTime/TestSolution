@@ -16,11 +16,11 @@ namespace IocAutofac.Models.Database
         }
 
         [Key]
-        [Column("Accession", TypeName = "numeric")]
-        public decimal Accession1 { get; set; }
+        [Column("Accession")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Accession1 { get; set; }
 
-        [Column(TypeName = "numeric")]
-        public decimal? ISBN { get; set; }
+        public int? ISBN { get; set; }
 
         public virtual Book Book { get; set; }
 

@@ -20,21 +20,9 @@ namespace IocAutofac.Models.Database
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Accession>()
-                .Property(e => e.Accession1)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Accession>()
-                .Property(e => e.ISBN)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Accession>()
                 .HasMany(e => e.Loan)
                 .WithOptional(e => e.Accession1)
                 .HasForeignKey(e => e.Accession);
-
-            modelBuilder.Entity<Book>()
-                .Property(e => e.ISBN)
-                .HasPrecision(18, 0);
 
             modelBuilder.Entity<Book>()
                 .Property(e => e.Title)
@@ -49,10 +37,6 @@ namespace IocAutofac.Models.Database
                 .IsUnicode(false);
 
             modelBuilder.Entity<Borrower>()
-                .Property(e => e.Id)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Borrower>()
                 .Property(e => e.Forename)
                 .IsUnicode(false);
 
@@ -64,18 +48,6 @@ namespace IocAutofac.Models.Database
                 .HasMany(e => e.Loan)
                 .WithOptional(e => e.Borrower1)
                 .HasForeignKey(e => e.Borrower);
-
-            modelBuilder.Entity<Loan>()
-                .Property(e => e.Id)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Loan>()
-                .Property(e => e.Borrower)
-                .HasPrecision(18, 0);
-
-            modelBuilder.Entity<Loan>()
-                .Property(e => e.Accession)
-                .HasPrecision(18, 0);
         }
     }
 }

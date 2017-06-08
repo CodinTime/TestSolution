@@ -16,8 +16,7 @@ namespace IocAutofac.Models.Database
         }
 
         [Key]
-        [Column(TypeName = "numeric")]
-        public decimal ISBN { get; set; }
+        public int ISBN { get; set; }
 
         [StringLength(20)]
         public string Title { get; set; }

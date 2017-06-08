@@ -15,8 +15,7 @@ namespace IocAutofac.Models.Database
             Loan = new HashSet<Loan>();
         }
 
-        [Column(TypeName = "numeric")]
-        public decimal Id { get; set; }
+        public int Id { get; set; }
 
         [StringLength(20)]
         public string Forename { get; set; }
