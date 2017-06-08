@@ -22,6 +22,7 @@ namespace IocAutofac.Api.Controllers
         public async Task<HttpResponseMessage> GetPing()
         {
             var ping = await _testService.GetPing();
+            //TODO - make some changes
             return Request.CreateResponse(HttpStatusCode.OK, ping);
         }
     }
