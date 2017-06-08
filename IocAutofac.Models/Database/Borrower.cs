@@ -9,6 +9,12 @@ namespace IocAutofac.Models.Database
     [Table("Borrower")]
     public partial class Borrower
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Borrower()
+        {
+            Loan = new HashSet<Loan>();
+        }
+
         [Column(TypeName = "numeric")]
         public decimal Id { get; set; }
 
@@ -17,5 +23,8 @@ namespace IocAutofac.Models.Database
 
         [StringLength(20)]
         public string Surname { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Loan> Loan { get; set; }
     }
 }

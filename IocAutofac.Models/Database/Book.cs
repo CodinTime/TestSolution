@@ -9,6 +9,12 @@ namespace IocAutofac.Models.Database
     [Table("Book")]
     public partial class Book
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Book()
+        {
+            Accession = new HashSet<Accession>();
+        }
+
         [Key]
         [Column(TypeName = "numeric")]
         public decimal ISBN { get; set; }
@@ -22,6 +28,7 @@ namespace IocAutofac.Models.Database
         [StringLength(30)]
         public string Publisher { get; set; }
 
-        public virtual Accession Accession { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Accession> Accession { get; set; }
     }
 }
